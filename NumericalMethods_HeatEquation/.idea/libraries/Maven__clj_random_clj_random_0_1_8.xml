@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: clj-random:clj-random:0.1.8">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/clj-random/clj-random/0.1.8/clj-random-0.1.8.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/clj-random/clj-random/0.1.8/clj-random-0.1.8-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/clj-random/clj-random/0.1.8/clj-random-0.1.8-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
