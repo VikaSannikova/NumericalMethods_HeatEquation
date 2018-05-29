@@ -125,30 +125,12 @@ public class Main {
                     alfanum[i]=Double.parseDouble(alfas[i]);
                 }
                 XYSeries base = new XYSeries("начальная");
-                XYSeries explicit = new XYSeries("явная");
-                XYSeries implicit = new XYSeries("неявная");
                 Explicit U1 = new Explicit(L,T,D,alfanum,deltaX,deltaY);
-                //Implicit U2 = new Implicit(L,T,D,alfanum,deltaX,deltaY);
                 double[] basevec = U1.U[0];
-
-                System.out.println("graf");
-                U1.printArray(basevec);
-
-                double[] exvec = U1.U[U1.rows-1];
-                //double[] imvec = U2.U[U2.rows-1];
                 for (float i = 0; i < U1.L; i+=U1.h){
-                    System.out.print((int)(i/U1.h)+" @ ");
                     base.add(i,basevec[(int)(i/U1.h)]);
                 }
                 dataset.addSeries(base);
-                for(float i = 0; i < U1.L; i+=U1.h){
-                    explicit.add(i, exvec[(int)(i/U1.h)]);
-                }
-//                for(float  i =0; i<U2.L; i+=U2.h){
-//                    implicit.add(i, imvec[(int)(i/U2.h)]);
-//                }
-                //dataset.addSeries(explicit);
-                //dataset.addSeries(implicit);
             }
         });
         drawEI.addActionListener(new ActionListener() {
@@ -165,40 +147,20 @@ public class Main {
                 for(int i =0;i<alfanum.length;i++){
                     alfanum[i]=Double.parseDouble(alfas[i]);
                 }
-                //XYSeries base = new XYSeries("начальная");
                 XYSeries explicit = new XYSeries("явная");
                 XYSeries implicit = new XYSeries("неявная");
-                XYSeries plicit = new XYSeries("хз");
-                XYSeries govno = new XYSeries("govno");
                 Explicit U1 = new Explicit(L,T,D,alfanum,deltaX,deltaY);
                 Implicit U2 = new Implicit(L,T,D,alfanum,deltaX,deltaY);
-//                double[] basevec = U1.U[0];
-//                System.out.println("graf");
-//                U1.printArray(basevec);
-
                 double[] exvec = U1.U[U1.rows-1];
                 double[] imvec = U2.U[U2.rows-1];
-                double[] vec = U2._U1[U2.rows-1];
-                double[] arr = U2._matrix[U2.rows-1];
-//                for (float i = 0; i < U1.L; i+=U1.h){
-//                    System.out.print((int)(i/U1.h)+" @ ");
-//                    base.add(i,basevec[(int)(i/U1.h)]);
-//                }
-                //dataset.addSeries(base);
                 for(float i = 0; i < U1.L; i+=U1.h){
                     explicit.add(i, exvec[(int)(i/U1.h)]);
                 }
                 for(float  i =0; i<U2.L; i+=U2.h){
                     implicit.add(i, imvec[(int)(i/U2.h)]);
                 }
-                for(float i = 0;i<U2.L;i+=U2.h){
-                    plicit.add(i,vec[(int)(i/U2.h)]);
-                    govno.add(i,arr[(int)(i/U2.h)]);
-                }
                 dataset.addSeries(explicit);
                 dataset.addSeries(implicit);
-                dataset.addSeries(plicit);
-                dataset.addSeries(govno);
             }
         });
         JButton clear = new JButton("clear");
