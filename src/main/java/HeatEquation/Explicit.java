@@ -76,7 +76,7 @@ public class Explicit {
             //U[0][j] = 35;
             U[0][j] = U_xt(j*h, alfa, lambda); //наша входная функция для начальных условий
         }
-        printArray(U[0]);
+        //printArray(U[0]);
         U[0][0] = U[0][1];
         U[0][U[0].length - 1] = U[0][U[0].length - 2];
 
@@ -89,7 +89,7 @@ public class Explicit {
             U[i][0] = U[i][1];
             U[i][U[0].length - 1] = U[i][U[0].length - 2];
         }
-        printArray(U[0]);
+        //printArray(U[0]);
 
     }
 

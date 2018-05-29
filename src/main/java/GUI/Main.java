@@ -113,7 +113,7 @@ public class Main {
         drawBase.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double L = Double.valueOf(lengthField.getText());
+                double L = Double.valueOf(lengthField.getText())+Double.valueOf(deltaXField.getText());
                 double T =Double.valueOf(timeField.getText());
                 double D = 1;
                 double deltaX  = Double.valueOf(deltaXField.getText());
@@ -130,6 +130,7 @@ public class Main {
                 Explicit U1 = new Explicit(L,T,D,alfanum,deltaX,deltaY);
                 //Implicit U2 = new Implicit(L,T,D,alfanum,deltaX,deltaY);
                 double[] basevec = U1.U[0];
+
                 System.out.println("graf");
                 U1.printArray(basevec);
 
@@ -153,7 +154,7 @@ public class Main {
         drawEI.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                double L = Double.valueOf(lengthField.getText());
+                double L = Double.valueOf(lengthField.getText())+Double.valueOf(deltaXField.getText());
                 double T =Double.valueOf(timeField.getText());
                 double D = 1;
                 double deltaX  = Double.valueOf(deltaXField.getText());
@@ -167,6 +168,8 @@ public class Main {
                 //XYSeries base = new XYSeries("начальная");
                 XYSeries explicit = new XYSeries("явная");
                 XYSeries implicit = new XYSeries("неявная");
+                XYSeries plicit = new XYSeries("хз");
+                XYSeries govno = new XYSeries("govno");
                 Explicit U1 = new Explicit(L,T,D,alfanum,deltaX,deltaY);
                 Implicit U2 = new Implicit(L,T,D,alfanum,deltaX,deltaY);
 //                double[] basevec = U1.U[0];
@@ -175,6 +178,8 @@ public class Main {
 
                 double[] exvec = U1.U[U1.rows-1];
                 double[] imvec = U2.U[U2.rows-1];
+                double[] vec = U2._U1[U2.rows-1];
+                double[] arr = U2._matrix[U2.rows-1];
 //                for (float i = 0; i < U1.L; i+=U1.h){
 //                    System.out.print((int)(i/U1.h)+" @ ");
 //                    base.add(i,basevec[(int)(i/U1.h)]);
@@ -186,8 +191,14 @@ public class Main {
                 for(float  i =0; i<U2.L; i+=U2.h){
                     implicit.add(i, imvec[(int)(i/U2.h)]);
                 }
+                for(float i = 0;i<U2.L;i+=U2.h){
+                    plicit.add(i,vec[(int)(i/U2.h)]);
+                    govno.add(i,arr[(int)(i/U2.h)]);
+                }
                 dataset.addSeries(explicit);
                 dataset.addSeries(implicit);
+                dataset.addSeries(plicit);
+                dataset.addSeries(govno);
             }
         });
         JButton clear = new JButton("clear");
@@ -239,6 +250,7 @@ public class Main {
         plot.setRangeGridlinePaint (Color.gray);
         XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
         renderer.setSeriesPaint  (2, Color.orange);
+        renderer.setSeriesPaint(3,Color.BLACK);
         //renderer.setSeriesStroke (2, new BasicStroke(2.5f));
         plot.setRenderer(renderer);
 
