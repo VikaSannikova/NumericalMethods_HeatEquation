@@ -32,9 +32,7 @@ public class Implicit {
 
     public double b_x(double x){
         //return sin(x)*cos(x);
-        //return x;
-        return sin(x)*cos(x);
-        //return 0;
+        return sin(x);
     }
 
     public double[] gaussMethod(double[][] _A, double[] _B){

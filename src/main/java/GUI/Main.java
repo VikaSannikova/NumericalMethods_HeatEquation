@@ -86,27 +86,6 @@ public class Main {
         dataLTXYC.add(alfas);
         alfas.setSize(deltaXField.getSize());
 
-//        JPanel dataLTXYCANN = new JPanel(new GridLayout(2,1,0,5));
-//        JPanel g1 = new JPanel(new GridLayout(1,6,0,5));
-//        JPanel g2 = new JPanel(new GridLayout(1,6,0,5));
-//        g1.add(new Label("Set length:"));
-//        g1.add(lengthField);
-//        g1.add(new Label("Set delta X: "));
-//        g1.add( deltaXField);
-//        g1.add(new Label("Set coeffs: "));
-//        g1.add(alfas);
-//        g2.add(new Label("Set time:"));
-//        g2.add(timeField);
-//        g2.add(new Label("Set delta Y: "));
-//        g2.add(deltaYField);
-//        g2.add(new JLabel());
-//        g2.add(new JLabel());
-//        dataLTXYCANN.add(g1);
-//        dataLTXYCANN.add(g2);
-
-        JPanel coefbutton = new JPanel(new GridLayout(1,3,0,5));
-
-
         JPanel dataAD = new JPanel(new GridLayout(3,1,0,5));
         JButton drawBase = new JButton("draw base");
         JButton drawEI = new JButton("draw EI");
@@ -176,22 +155,12 @@ public class Main {
         dataAD.add(drawEI);
         dataAD.add(clear);
 
-        //coefbutton.add(drawBase);
-        //coefbutton.add(drawEI);
-        //coefbutton.add(clear);
-
         dataFields.add(dataLTXYC);
         dataFields.add(dataAD);
-
-        //dataFieldsANN.add(dataLTXYCANN);
-        dataFieldsANN.add(coefbutton);
-        JPanel dataANN = new JPanel(new FlowLayout(FlowLayout.CENTER));
-        dataANN.add(dataFieldsANN);
 
         JPanel data = new JPanel(new FlowLayout(FlowLayout.CENTER));
         data.add(dataFields);
         frame.add(data, BorderLayout.WEST);
-        //frame.add(dataANN, BorderLayout.NORTH);
 
 
 

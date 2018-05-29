@@ -31,7 +31,8 @@ public class Explicit {
         return result;
     }
     public double b_x(double x){
-        return sin(x)*cos(x);
+        //return sin(x)*cos(x);
+        return sin(x);
     }
     public void printArray(double[] array){
         for(int i =0;i<array.length;i++){
