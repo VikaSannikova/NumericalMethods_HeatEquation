@@ -77,8 +77,8 @@ public class Explicit {
         this.h = h;
         this.s = s;
         this.alfa = alfa;
-        this.cols = (int) (L/h);
-        this.rows = (int) (T/s);
+        this.cols = (int) (L/h) + 1;
+        this.rows = (int) (T/s) + 1;
         this.q = s/(pow(h,2));
         this.lambda = pi/L;
         this.U = new double[rows][cols];

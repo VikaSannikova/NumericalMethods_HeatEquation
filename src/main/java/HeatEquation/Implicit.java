@@ -100,22 +100,23 @@ public class Implicit {
         A = new double[cols-2][cols-2];
         A[0][0] = 1.0 / s + 1.0 / (h*h) - b_x(h);
         A[0][1] = -1.0 / (h*h);
-        for(int i = 1; i < A.length-1; ++i){
+        for(int i = 1; i < A.length-1 ; ++i){
             A[i][i - 1] = -1.0 / (h*h);
             A[i][i] = 1.0 / s + 2.0 / (h*h) - b_x((i + 1) * h);
             A[i][i + 1] = -1.0 / (h*h);
         }
         A[A.length-1][A.length-2] = -1.0 / (h*h);
         A[A.length-1][A.length-1] = 1.0 / s + 1.0 / (h*h) - b_x((A.length) * h);
+        System.out.println(A.length-1);
     }
 
     public double[] createF(int j, double[][] matrix){
         f = new double[cols-2];
         f[0] = matrix[j][0] / s;
-        for(int i = 1; i < A.length-1; ++i){
-            f[i] = matrix[j][i] / s;
+        for(int i = 1; i < f.length - 1; ++i){
+            f[i] = matrix[j][i] / s; //тут бага
         }
-        f[f.length-1] = matrix[j][f.length-1] / s;
+        f[f.length-1] = matrix[j][f.length-1] / s; //тут бага
         return f;
     }
 
@@ -126,8 +127,8 @@ public class Implicit {
         this.h = h;
         this.s = s;
         this.alfa = alfa;
-        this.cols = (int) (L/h);
-        this.rows = (int) (T/s);
+        this.cols = (int) (L/h) + 1;
+        this.rows = (int) (T/s) + 1;
         this.q = s/(pow(h,2));
         this.lambda = pi/L;
         this.U = new double[rows][cols];
@@ -139,11 +140,18 @@ public class Implicit {
         for(int j = 0;j<cols-2;j++){
             matrix[0][j]=U[0][j+1];
         }
-
-        for (int j = 0; j <= rows - 2; ++j)
+        System.out.println("кол-во строк в матрице"+ rows);
+        for (int j = 0; j < rows - 1; ++j)
         {
-            matrix[j+1]=gaussMethod(A,createF(j,matrix));
+            matrix[j+1]=gaussMethod(A,createF(j,matrix)); //и тут бага
         }
+
+//        double [] tmp = new double[cols-2];
+//        tmp = gaussMethod(A, createF(rows-1, matrix));
+//        System.out.println("11 вектор:");
+//        printArray(tmp);
+//        System.out.println();
+//
         for(int i = 0;i<rows;i++){
             for(int j = 1;j<cols-1;j++){
                 U[i][j]=matrix[i][j-1];
@@ -151,5 +159,6 @@ public class Implicit {
             U[i][0]=U[i][1];
             U[i][cols-1]=U[i][cols-2];
         }
+        printMatrix(U);
     }
 }
