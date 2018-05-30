@@ -15,6 +15,8 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import static java.lang.Math.pow;
+
 public class Main {
     public static void main(String[] args) {
         double L = 5;
@@ -26,8 +28,10 @@ public class Main {
 
         final XYSeriesCollection dataset = new XYSeriesCollection();
 
-        JFrame frame =
+        final JFrame frame =
                 new JFrame("Уравнение теплопроводности");
+        frame.setLocationRelativeTo(null);
+
 
         JPanel dataFields = new JPanel(new GridLayout(2,1,0,5));
 
@@ -49,9 +53,12 @@ public class Main {
         dataLTXYC.add(alfas);
         alfas.setSize(deltaXField.getSize());
 
-        JPanel dataAD = new JPanel(new GridLayout(3,1,0,5));
+        JPanel buttons = new JPanel(new GridLayout(4,1,0,5));
         JButton drawBase = new JButton("draw base");
-        JButton drawEI = new JButton("draw EI");
+        JButton drawExplicit = new JButton("draw explicit");
+        JButton drawImplicit = new JButton("draw implicit");
+        JButton clear = new JButton("clear");
+
         drawBase.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,7 +82,50 @@ public class Main {
                 dataset.addSeries(base);
             }
         });
-        drawEI.addActionListener(new ActionListener() {
+        drawExplicit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                double L = Double.valueOf(lengthField.getText());
+                double T =Double.valueOf(timeField.getText());
+                double D = 1;
+                double deltaX  = Double.valueOf(deltaXField.getText());
+                final double deltaY = Double.valueOf(deltaYField.getText());
+                if(deltaY>pow(deltaX,2)/(2*D)){
+                    JPanel panel = new JPanel(new GridLayout(2,1));
+                    final JDialog error = new JDialog();
+                    error.setSize(500,200);
+                    error.setLocationRelativeTo(frame);
+                    panel.add(new JLabel("Явная схема неустойчива. Шаг по времени должен быть ≤"+pow(deltaX,2)/(2*D)));
+                    JButton ok = new JButton("OK");
+                    ok.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            deltaYField.setText("");
+                            error.dispose();
+                        }
+                    });
+                    panel.add(ok);
+                    error.add(panel);
+                    error.setModal(true);
+                    error.setVisible(true);
+                }else{
+                    String alfa = alfas.getText();
+                    String[] alfas = alfa.split(" ");
+                    double[] alfanum = new double[alfas.length];
+                    for(int i =0;i<alfanum.length;i++){
+                        alfanum[i]=Double.parseDouble(alfas[i]);
+                    }
+                    XYSeries explicit = new XYSeries("явная");
+                    Explicit U = new Explicit(L,T,D,alfanum,deltaX,deltaY);
+                    double[] exvec = U.U[U.rows-1];
+                    for(float i = 0; i <= U.L; i+=U.h){
+                        explicit.add(i, exvec[(int)(i/U.h)]);
+                    }
+                    dataset.addSeries(explicit);
+                }
+            }
+        });
+        drawImplicit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 double L = Double.valueOf(lengthField.getText());
@@ -89,23 +139,15 @@ public class Main {
                 for(int i =0;i<alfanum.length;i++){
                     alfanum[i]=Double.parseDouble(alfas[i]);
                 }
-                XYSeries explicit = new XYSeries("явная");
                 XYSeries implicit = new XYSeries("неявная");
-                Explicit U1 = new Explicit(L,T,D,alfanum,deltaX,deltaY);
-                Implicit U2 = new Implicit(L,T,D,alfanum,deltaX,deltaY);
-                double[] exvec = U1.U[U1.rows-1];
-                double[] imvec = U2.U[U2.rows-1];
-                for(float i = 0; i <= U1.L; i+=U1.h){
-                    explicit.add(i, exvec[(int)(i/U1.h)]);
+                Implicit U = new Implicit(L,T,D,alfanum,deltaX,deltaY);
+                double[] imvec = U.U[U.rows-1];
+                for(float  i =0; i<=U.L; i+=U.h){
+                    implicit.add(i, imvec[(int)(i/U.h)]);
                 }
-                for(float  i =0; i<=U2.L; i+=U2.h){
-                    implicit.add(i, imvec[(int)(i/U2.h)]);
-                }
-                dataset.addSeries(explicit);
                 dataset.addSeries(implicit);
             }
         });
-        JButton clear = new JButton("clear");
         clear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -114,12 +156,13 @@ public class Main {
         });
 
 
-        dataAD.add(drawBase);
-        dataAD.add(drawEI);
-        dataAD.add(clear);
+        buttons.add(drawBase);
+        buttons.add(drawExplicit);
+        buttons.add(drawImplicit);
+        buttons.add(clear);
 
         dataFields.add(dataLTXYC);
-        dataFields.add(dataAD);
+        dataFields.add(buttons);
 
         JPanel data = new JPanel(new FlowLayout(FlowLayout.CENTER));
         data.add(dataFields);
