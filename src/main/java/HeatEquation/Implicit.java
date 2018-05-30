@@ -32,7 +32,8 @@ public class Implicit {
 
     public double b_x(double x){
         //return sin(x)*cos(x);
-        return sin(x);
+        //return sin(x);
+        return cos(x);
     }
 
     public double[] gaussMethod(double[][] _A, double[] _B){
@@ -92,8 +93,8 @@ public class Implicit {
         for (int j = 0; j < U[0].length; j++) { //инициализация начальных условий
             U[0][j] = U_xt(j*h, alfa, lambda); //наша входная функция для начальных условий
         }
-        U[0][0] = U[0][1];
-        U[0][U[0].length - 1] = U[0][U[0].length - 2];
+        //U[0][0] = U[0][1];
+        //U[0][U[0].length - 1] = U[0][U[0].length - 2];
     }
 
     public void createA(){

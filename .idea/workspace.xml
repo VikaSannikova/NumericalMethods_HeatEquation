@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="eb280dbe-83e6-4ab3-a46d-e738fce0e921" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/GUI/Main.java" afterPath="$PROJECT_DIR$/src/main/java/GUI/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/HeatEquation/Explicit.java" afterPath="$PROJECT_DIR$/src/main/java/HeatEquation/Explicit.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/HeatEquation/Implicit.java" afterPath="$PROJECT_DIR$/src/main/java/HeatEquation/Implicit.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,12 +20,11 @@
       <file leaf-file-name="Implicit.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/HeatEquation/Implicit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="129" column="35" lean-forward="false" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
+            <state relative-caret-position="452">
+              <caret line="96" column="10" lean-forward="false" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#U_xt#0;class#Implicit#0" expanded="false" />
-                <element signature="method#b_x#0;class#Implicit#0" expanded="false" />
                 <element signature="method#gaussMethod#0;class#Implicit#0" expanded="false" />
                 <element signature="method#printMatrix#0;class#Implicit#0" expanded="false" />
                 <element signature="method#printArray#0;class#Implicit#0" expanded="false" />
@@ -32,38 +33,37 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/GUI/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="116" column="21" lean-forward="true" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+            <state relative-caret-position="450">
+              <caret line="105" column="36" lean-forward="false" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2177#3239#0" expanded="true" />
-                <element signature="e#3238#3239#0" expanded="true" />
-                <element signature="e#3281#5367#0" expanded="true" />
-                <element signature="e#4177#4448#0" expanded="true" />
-                <element signature="e#4447#4448#0" expanded="true" />
-                <element signature="e#5366#5367#0" expanded="true" />
-                <element signature="e#5409#6477#0" expanded="true" />
-                <element signature="e#6476#6477#0" expanded="true" />
-                <element signature="e#6512#6680#0" expanded="true" />
-                <element signature="e#6679#6680#0" expanded="true" />
+                <element signature="e#2176#3238#0" expanded="true" />
+                <element signature="e#3237#3238#0" expanded="true" />
+                <element signature="e#3280#5409#0" expanded="true" />
+                <element signature="e#4180#4451#0" expanded="true" />
+                <element signature="e#4450#4451#0" expanded="true" />
+                <element signature="e#5408#5409#0" expanded="true" />
+                <element signature="e#5451#6521#0" expanded="true" />
+                <element signature="e#6520#6521#0" expanded="true" />
+                <element signature="e#6556#6724#0" expanded="true" />
+                <element signature="e#6723#6724#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Explicit.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Explicit.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/HeatEquation/Explicit.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="79" column="35" lean-forward="false" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
+            <state relative-caret-position="355">
+              <caret line="61" column="10" lean-forward="false" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
               <folding>
                 <element signature="method#U_xt#0;class#Explicit#0" expanded="false" />
                 <element signature="method#printArray#0;class#Explicit#0" expanded="false" />
                 <element signature="method#printMatrix#0;class#Explicit#0" expanded="false" />
-                <element signature="method#setEntryConditions#0;class#Explicit#0" expanded="false" />
                 <element signature="method#createU#0;class#Explicit#0" expanded="false" />
               </folding>
             </state>
@@ -105,9 +105,9 @@
         <option value="$PROJECT_DIR$/src/main/java/HeatEquation/explicit.java" />
         <option value="$PROJECT_DIR$/src/main/java/HeatEquation/Main.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/GUI/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/HeatEquation/Implicit.java" />
         <option value="$PROJECT_DIR$/src/main/java/HeatEquation/Explicit.java" />
-        <option value="$PROJECT_DIR$/src/main/java/GUI/Main.java" />
       </list>
     </option>
   </component>
@@ -345,12 +345,12 @@
       <workItem from="1527272447902" duration="11885000" />
       <workItem from="1527286059433" duration="42258000" />
       <workItem from="1527536950567" duration="10610000" />
-      <workItem from="1527623939628" duration="9735000" />
+      <workItem from="1527623939628" duration="11272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74488000" />
+    <option name="totallyTimeSpent" value="76025000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -410,7 +410,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#U_xt#0;class#Implicit#0" expanded="false" />
-            <element signature="method#b_x#0;class#Implicit#0" expanded="false" />
             <element signature="method#gaussMethod#0;class#Implicit#0" expanded="false" />
             <element signature="method#printMatrix#0;class#Implicit#0" expanded="false" />
             <element signature="method#printArray#0;class#Implicit#0" expanded="false" />
@@ -434,7 +433,6 @@
             <element signature="method#U_xt#0;class#Explicit#0" expanded="false" />
             <element signature="method#printArray#0;class#Explicit#0" expanded="false" />
             <element signature="method#printMatrix#0;class#Explicit#0" expanded="false" />
-            <element signature="method#setEntryConditions#0;class#Explicit#0" expanded="false" />
             <element signature="method#createU#0;class#Explicit#0" expanded="false" />
           </folding>
         </state>
@@ -446,16 +444,16 @@
           <caret line="200" column="39" lean-forward="false" selection-start-line="200" selection-start-column="39" selection-end-line="200" selection-end-column="39" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2177#3239#0" expanded="true" />
-            <element signature="e#3238#3239#0" expanded="true" />
-            <element signature="e#3281#5367#0" expanded="true" />
-            <element signature="e#4177#4448#0" expanded="true" />
-            <element signature="e#4447#4448#0" expanded="true" />
-            <element signature="e#5366#5367#0" expanded="true" />
-            <element signature="e#5409#6477#0" expanded="true" />
-            <element signature="e#6476#6477#0" expanded="true" />
-            <element signature="e#6512#6680#0" expanded="true" />
-            <element signature="e#6679#6680#0" expanded="true" />
+            <element signature="e#2176#3238#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3280#5409#0" expanded="true" />
+            <element signature="e#4180#4451#0" expanded="true" />
+            <element signature="e#4450#4451#0" expanded="true" />
+            <element signature="e#5408#5409#0" expanded="true" />
+            <element signature="e#5451#6521#0" expanded="true" />
+            <element signature="e#6520#6521#0" expanded="true" />
+            <element signature="e#6556#6724#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -467,7 +465,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#U_xt#0;class#Implicit#0" expanded="false" />
-            <element signature="method#b_x#0;class#Implicit#0" expanded="false" />
             <element signature="method#gaussMethod#0;class#Implicit#0" expanded="false" />
             <element signature="method#printMatrix#0;class#Implicit#0" expanded="false" />
             <element signature="method#printArray#0;class#Implicit#0" expanded="false" />
@@ -481,16 +478,16 @@
           <caret line="212" column="10" lean-forward="false" selection-start-line="212" selection-start-column="10" selection-end-line="212" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2177#3239#0" expanded="true" />
-            <element signature="e#3238#3239#0" expanded="true" />
-            <element signature="e#3281#5367#0" expanded="true" />
-            <element signature="e#4177#4448#0" expanded="true" />
-            <element signature="e#4447#4448#0" expanded="true" />
-            <element signature="e#5366#5367#0" expanded="true" />
-            <element signature="e#5409#6477#0" expanded="true" />
-            <element signature="e#6476#6477#0" expanded="true" />
-            <element signature="e#6512#6680#0" expanded="true" />
-            <element signature="e#6679#6680#0" expanded="true" />
+            <element signature="e#2176#3238#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3280#5409#0" expanded="true" />
+            <element signature="e#4180#4451#0" expanded="true" />
+            <element signature="e#4450#4451#0" expanded="true" />
+            <element signature="e#5408#5409#0" expanded="true" />
+            <element signature="e#5451#6521#0" expanded="true" />
+            <element signature="e#6520#6521#0" expanded="true" />
+            <element signature="e#6556#6724#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -503,7 +500,6 @@
             <element signature="method#U_xt#0;class#Explicit#0" expanded="false" />
             <element signature="method#printArray#0;class#Explicit#0" expanded="false" />
             <element signature="method#printMatrix#0;class#Explicit#0" expanded="false" />
-            <element signature="method#setEntryConditions#0;class#Explicit#0" expanded="false" />
             <element signature="method#createU#0;class#Explicit#0" expanded="false" />
           </folding>
         </state>
@@ -516,7 +512,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#U_xt#0;class#Implicit#0" expanded="false" />
-            <element signature="method#b_x#0;class#Implicit#0" expanded="false" />
             <element signature="method#gaussMethod#0;class#Implicit#0" expanded="false" />
             <element signature="method#printMatrix#0;class#Implicit#0" expanded="false" />
             <element signature="method#printArray#0;class#Implicit#0" expanded="false" />
@@ -533,35 +528,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HeatEquation/functions.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/HeatEquation/Implicit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="129" column="35" lean-forward="false" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#U_xt#0;class#Implicit#0" expanded="false" />
-            <element signature="method#b_x#0;class#Implicit#0" expanded="false" />
-            <element signature="method#gaussMethod#0;class#Implicit#0" expanded="false" />
-            <element signature="method#printMatrix#0;class#Implicit#0" expanded="false" />
-            <element signature="method#printArray#0;class#Implicit#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/HeatEquation/Explicit.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="79" column="35" lean-forward="false" selection-start-line="79" selection-start-column="35" selection-end-line="79" selection-end-column="35" />
-          <folding>
-            <element signature="method#U_xt#0;class#Explicit#0" expanded="false" />
-            <element signature="method#printArray#0;class#Explicit#0" expanded="false" />
-            <element signature="method#printMatrix#0;class#Explicit#0" expanded="false" />
-            <element signature="method#setEntryConditions#0;class#Explicit#0" expanded="false" />
-            <element signature="method#createU#0;class#Explicit#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -580,20 +546,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/GUI/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="116" column="21" lean-forward="true" selection-start-line="116" selection-start-column="21" selection-end-line="116" selection-end-column="21" />
+        <state relative-caret-position="450">
+          <caret line="105" column="36" lean-forward="false" selection-start-line="105" selection-start-column="36" selection-end-line="105" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#2177#3239#0" expanded="true" />
-            <element signature="e#3238#3239#0" expanded="true" />
-            <element signature="e#3281#5367#0" expanded="true" />
-            <element signature="e#4177#4448#0" expanded="true" />
-            <element signature="e#4447#4448#0" expanded="true" />
-            <element signature="e#5366#5367#0" expanded="true" />
-            <element signature="e#5409#6477#0" expanded="true" />
-            <element signature="e#6476#6477#0" expanded="true" />
-            <element signature="e#6512#6680#0" expanded="true" />
-            <element signature="e#6679#6680#0" expanded="true" />
+            <element signature="e#2176#3238#0" expanded="true" />
+            <element signature="e#3237#3238#0" expanded="true" />
+            <element signature="e#3280#5409#0" expanded="true" />
+            <element signature="e#4180#4451#0" expanded="true" />
+            <element signature="e#4450#4451#0" expanded="true" />
+            <element signature="e#5408#5409#0" expanded="true" />
+            <element signature="e#5451#6521#0" expanded="true" />
+            <element signature="e#6520#6521#0" expanded="true" />
+            <element signature="e#6556#6724#0" expanded="true" />
+            <element signature="e#6723#6724#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HeatEquation/Implicit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="452">
+          <caret line="96" column="10" lean-forward="false" selection-start-line="96" selection-start-column="10" selection-end-line="96" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#U_xt#0;class#Implicit#0" expanded="false" />
+            <element signature="method#gaussMethod#0;class#Implicit#0" expanded="false" />
+            <element signature="method#printMatrix#0;class#Implicit#0" expanded="false" />
+            <element signature="method#printArray#0;class#Implicit#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/HeatEquation/Explicit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="61" column="10" lean-forward="false" selection-start-line="61" selection-start-column="10" selection-end-line="61" selection-end-column="10" />
+          <folding>
+            <element signature="method#U_xt#0;class#Explicit#0" expanded="false" />
+            <element signature="method#printArray#0;class#Explicit#0" expanded="false" />
+            <element signature="method#printMatrix#0;class#Explicit#0" expanded="false" />
+            <element signature="method#createU#0;class#Explicit#0" expanded="false" />
           </folding>
         </state>
       </provider>

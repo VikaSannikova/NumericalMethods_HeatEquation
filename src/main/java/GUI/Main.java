@@ -32,7 +32,6 @@ public class Main {
                 new JFrame("Уравнение теплопроводности");
         frame.setLocationRelativeTo(null);
 
-
         JPanel dataFields = new JPanel(new GridLayout(2,1,0,5));
 
         JPanel dataLTXYC = new JPanel(new GridLayout(5,2,0,5));
@@ -90,7 +89,7 @@ public class Main {
                 double D = 1;
                 double deltaX  = Double.valueOf(deltaXField.getText());
                 final double deltaY = Double.valueOf(deltaYField.getText());
-                if(deltaY>pow(deltaX,2)/(2*D)){
+                if( deltaY > pow(deltaX,2)/(2*D) ){
                     JPanel panel = new JPanel(new GridLayout(2,1));
                     final JDialog error = new JDialog();
                     error.setSize(500,200);
@@ -104,6 +103,7 @@ public class Main {
                             error.dispose();
                         }
                     });
+                    ok.setSize(20,20);
                     panel.add(ok);
                     error.add(panel);
                     error.setModal(true);
@@ -128,6 +128,7 @@ public class Main {
         drawImplicit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 double L = Double.valueOf(lengthField.getText());
                 double T =Double.valueOf(timeField.getText());
                 double D = 1;
@@ -146,6 +147,7 @@ public class Main {
                     implicit.add(i, imvec[(int)(i/U.h)]);
                 }
                 dataset.addSeries(implicit);
+
             }
         });
         clear.addActionListener(new ActionListener() {
@@ -191,7 +193,7 @@ public class Main {
         plot.setRenderer(renderer);
 
         frame.getContentPane().add(new ChartPanel(chart));
-        frame.setSize(400,300);
+        frame.setSize(800,500);
         frame.show();
     }
 }
